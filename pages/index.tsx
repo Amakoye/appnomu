@@ -68,6 +68,10 @@ export default function Home() {
                 fontSize: 20,
               }}
             >
+              {" "}
+              <Box ml="10em" mr="10em">
+                <Image src={PurchaseIcon} alt="purchase gif" />
+              </Box>
               Get started
             </Button>
           </Box>
