@@ -57,7 +57,7 @@ export default function Home() {
               >
                 AppNomu Agent
               </span>{" "}
-              -Together for a good customer service experience
+              -Together for a good customer service experience.
             </Typography>
             <Button
               variant="contained"
@@ -66,12 +66,13 @@ export default function Home() {
                 background: `${colors.greenAccent[400]}`,
                 textTransform: "none",
                 fontSize: 20,
+                fontWeight: 500,
+                letterSpacing: 2,
+                "&:hover": {
+                  background: `${colors.greenAccent[500]}`,
+                },
               }}
             >
-              {" "}
-              <Box ml="10em" mr="10em">
-                <Image src={PurchaseIcon} alt="purchase gif" />
-              </Box>
               Get started
             </Button>
           </Box>
