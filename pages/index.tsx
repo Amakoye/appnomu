@@ -5,6 +5,7 @@ import Stack from "@mui/material/Stack";
 import useTheme from "@mui/material/styles/useTheme";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
+import NextLink from "next/link";
 import PurchaseIcon from "../src/assets/Successful_purchase.gif";
 import { tokens } from "../src/theme";
 
@@ -59,22 +60,28 @@ export default function Home() {
               </span>{" "}
               -Together for a good customer service experience.
             </Typography>
-            <Button
-              variant="contained"
-              sx={{
-                marginTop: 2,
-                background: `${colors.greenAccent[400]}`,
-                textTransform: "none",
-                fontSize: 20,
-                fontWeight: 500,
-                letterSpacing: 2,
-                "&:hover": {
-                  background: `${colors.greenAccent[500]}`,
-                },
-              }}
+            <NextLink
+              passHref
+              href="/registerAgent"
+              style={{ textDecoration: "none" }}
             >
-              Get started
-            </Button>
+              <Button
+                variant="contained"
+                sx={{
+                  marginTop: 2,
+                  background: `${colors.greenAccent[400]}`,
+                  textTransform: "none",
+                  fontSize: 20,
+                  fontWeight: 500,
+                  letterSpacing: 2,
+                  "&:hover": {
+                    background: `${colors.greenAccent[500]}`,
+                  },
+                }}
+              >
+                Get started
+              </Button>
+            </NextLink>
           </Box>
         </Stack>
       </Grid>
