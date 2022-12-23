@@ -1,6 +1,7 @@
 import { PaletteMode, Theme } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { createContext, useMemo, useState } from "react";
+import TextField from "./customcomponents/TextField";
 
 // color design tokens
 export const tokens = (mode?: PaletteMode) => ({
@@ -131,10 +132,11 @@ export const themeSettings = (mode: PaletteMode) => {
       ...(mode === "dark"
         ? {
             primary: {
-              main: colors.primary[500],
+              main: colors.greenAccent[500],
+              contrastText: "#f4f4f4",
             },
             secondary: {
-              main: colors.greenAccent[500],
+              main: colors.primary[500],
             },
             neutral: {
               dark: colors.grey[700],
@@ -147,10 +149,11 @@ export const themeSettings = (mode: PaletteMode) => {
           }
         : {
             primary: {
-              main: colors.primary[100],
+              main: colors.greenAccent[500],
+              contrastText: "#f4f4f4",
             },
             secondary: {
-              main: colors.greenAccent[500],
+              main: colors.primary[100],
             },
             neutral: {
               dark: colors.grey[700],
@@ -210,7 +213,11 @@ export const useMode = (): [Theme, { toggleColorMode: () => void }] => {
     []
   );
 
-  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+  const theme = useMemo(() => {
+    const theme = createTheme(themeSettings(mode));
+    theme.components = Object.assign({}, TextField(theme));
+    return theme;
+  }, [mode]);
 
   return [theme, colorMode];
 };
